@@ -8,10 +8,13 @@ WORKDIR /code
 ADD package.json package-lock.json nuxt.config.js /code/
 
 RUN npm config set registry https://registry.npm.taobao.org
+# Install app dependencies
 RUN npm install -g pm2@latest
-RUN npm ci
+RUN npm install
+
 ADD static /code/static/
-ADD .next /code/.next/
+ADD content /code/content/
+ADD .nuxt /code/.nuxt/
 
 # 暴露端口映射
 EXPOSE 8085

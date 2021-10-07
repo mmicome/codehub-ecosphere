@@ -5,13 +5,19 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start --port 8085",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "prepare": "husky install",
     "lint": "yarn lint:js && yarn lint:style",
     "test": "jest"
+  },
+  "config": {
+    "nuxt":{
+      "host": "0.0.0.0",
+      "port": 8085
+    }
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
